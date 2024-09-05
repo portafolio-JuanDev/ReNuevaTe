@@ -2,13 +2,16 @@ function createCards(featureds) {
     const carousel = document.getElementById('card-products-featured');
     carousel.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas tarjetas
 
-    featureds.forEach(featured => {
+    // Crear una copia de los featureds para el efecto infinito
+    const allFeatureds = [...featureds, ...featureds, ...featureds]; // Duplicar las tarjetas
+
+    allFeatureds.forEach(featured => {
         const li = document.createElement('li');
         li.classList.add('inicio-card');
 
         const card = document.createElement('div');
         card.classList.add('inicio-card');
-        card.onclick = () => getCategoryProduct();
+        card.onclick = () => getCategoryProduct(featured.id);
 
         const description = document.createElement('div');
         description.classList.add('inicio-description');
@@ -44,6 +47,9 @@ function createCards(featureds) {
     card.appendChild(shoeDetails);
     li.appendChild(card);
     carousel.appendChild(li);
+
+    // Ajustar el scroll al inicio del carousel para que parezca infinito
+    carousel.scrollLeft = firstImgWidth; // Ajustar el desplazamiento inicial
 }
 
 // Funcionalidad de los botones de navegación
@@ -54,13 +60,23 @@ let firstImgWidth = 250 + 14; // Width de cada tarjeta + margin
 arrowIcons.forEach(icon => {
     icon.addEventListener("click", () => {
         carousel.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+
+        // Lógica para reiniciar el scroll si se llega al inicio o al final
+        if (carousel.scrollLeft <= 0) {
+            carousel.scrollLeft = carousel.scrollWidth / 3; // Mover al medio
+        } else if (carousel.scrollLeft >= carousel.scrollWidth / 3 * 2) {
+            carousel.scrollLeft = carousel.scrollWidth / 3; // Mover al medio
+        }
     });
 });
 
+function getCategoryProduct(idCategory) {
+    const url = `../pages/catalogo.html?id=${idCategory}`;
+    console.log("id categoria: " + idCategory);
+    window.location.href = url;
+}
 
 // Cargar los datos desde el archivo JSON y generar las tarjetas
-const idCategory = '0'; // Puedes ajustar este valor según sea necesario
-
 fetch('/ReNuevaTe/data/catalogo.json')
     .then(response => response.json())
     .then(data => {
@@ -70,12 +86,3 @@ fetch('/ReNuevaTe/data/catalogo.json')
     .catch(error => {
         console.error('Error al cargar el archivo JSON:', error);
     });
-
-function getCategoryProduct(idCategory) {
-    // Construir la URL con el parámetro del ID
-    const url = `../pages/catalogo.html?id=${idCategory}`;
-    console.log("id categoria: " + idCategory);
-
-    // Redirigir a la nueva URL
-    window.location.href = url;
-}
