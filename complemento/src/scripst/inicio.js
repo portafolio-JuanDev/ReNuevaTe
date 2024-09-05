@@ -8,7 +8,7 @@ function createCards(featureds) {
 
         const card = document.createElement('div');
         card.classList.add('inicio-card');
-        card.onclick = () => getProductsFeatured(featured.id);
+        card.onclick = () => getCategoryProduct();
 
         const description = document.createElement('div');
         description.classList.add('inicio-description');
@@ -30,7 +30,7 @@ function createCards(featureds) {
 
     const card = document.createElement('div');
     card.classList.add('inicio-card');
-    card.onclick = () => getProductsFeatured();
+    card.onclick = () => getCategoryProduct();
 
     const description = document.createElement('div');
     description.classList.add('inicio-description');
@@ -59,7 +59,9 @@ arrowIcons.forEach(icon => {
 
 
 // Cargar los datos desde el archivo JSON y generar las tarjetas
-fetch('/ReNuevaTe/data/productsFeatured.json')
+const idCategory = '0'; // Puedes ajustar este valor según sea necesario
+
+fetch('/ReNuevaTe/data/catalogo.json')
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -68,3 +70,12 @@ fetch('/ReNuevaTe/data/productsFeatured.json')
     .catch(error => {
         console.error('Error al cargar el archivo JSON:', error);
     });
+
+function getCategoryProduct(idCategory) {
+    // Construir la URL con el parámetro del ID
+    const url = `../pages/catalogo.html?id=${idCategory}`;
+    console.log("id categoria: " + idCategory);
+
+    // Redirigir a la nueva URL
+    window.location.href = url;
+}

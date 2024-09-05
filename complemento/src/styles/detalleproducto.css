@@ -16,8 +16,17 @@
     background: white;
     box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, 0.3);
   }
+
+  .slide{
+    height: 440px;
+    width: 100%;
+    border-radius: 4px;
+  }
   
-  .left,
+  .left{
+    padding: 30px;
+  }
+    
   .right {
     width: 50%;
     padding: 30px;
@@ -35,8 +44,8 @@
   }
   
   .image_principal {
-    width: 550px;
-    height: 550px;
+    width: 50%;
+    height: 50%;
     border-radius: 20px;
   }
   

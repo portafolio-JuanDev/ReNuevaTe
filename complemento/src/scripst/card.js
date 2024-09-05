@@ -51,15 +51,13 @@ function createCards(products) {
 
 function getDetailProduct(idProducto) {
     // Construir la URL con el parámetro del ID
-    const url = `/detail/${idProducto}`;
-    console.log(idProducto);
+    const url = `detalleProducto.html?id=${idProducto}`;
+    console.log("ID del producto: " + idProducto);
 
-    // Cambiar la URL sin recargar la página
-    window.history.pushState({}, "", url);
-
-    // Llamar a la función para manejar la nueva URL
-    urlLocationHandler();
+    // Redirigir a la nueva URL
+    window.location.href = url;
 }
+
 
 // Función para llenar los filtros
 function populateFilters(products) {
@@ -134,6 +132,7 @@ function filterProducts(products) {
     createCards(filteredProducts);
 }
 
+/*
 //Capturamos el id de la URL
 function getCategoryIdFromUrl() {
     // Obtener la ruta completa de la URL
@@ -144,7 +143,22 @@ function getCategoryIdFromUrl() {
 
     // Devolver el ID si existe, o null si no se encuentra
     return idMatch ? idMatch[1] : null;
+}*/
+
+
+// Capturamos el id de la URL
+function getCategoryIdFromUrl() {
+    // Obtener la URL completa
+    const urlParams = new URLSearchParams(window.location.search);
+
+    // Obtener el ID de la categoría desde los parámetros de la URL
+    const idCategory = urlParams.get('id');
+
+    // Devolver el ID si existe, o null si no se encuentra
+    return idCategory ? idCategory : null;
 }
+
+
 
 
 // Cargar datos del JSON y configurar filtros

@@ -5,7 +5,10 @@
   padding: 20px;
   background-color: white;
   border-radius: 8px;
+}
 
+.form-container input {
+  border: #718427 solid 2px;
 }
 
 .btn {
@@ -13,10 +16,10 @@
   /* Otros estilos del botón (tamaño, fuente, etc.) */
 }
 
-.btn:hover {
+/* .btn:hover {
 
   background-color: #718427;
-}
+} */
 
 .form-control {
   background-color: #F9F8DF;

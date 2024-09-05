@@ -15,7 +15,7 @@ function createDetail(product) {
   const mainImage = document.createElement('div');
   mainImage.classList.add('main_image');
   const primeraImagen = Object.values(product.pictures)[0];
-  mainImage.innerHTML = `<img id="main-img" width="550px" height="550px"  src="${primeraImagen}" class="slide">`;
+  mainImage.innerHTML = `<img id="main-img" src="${primeraImagen}" class="slide">`;
 
   const pictureKeys = Object.keys(product.pictures);
   const option = document.createElement('div');
@@ -63,11 +63,16 @@ function createDetail(product) {
   // };
 
   // Botón "Agregar al Carrito"
+
+
   const buttonCar = document.createElement('button');
   buttonCar.classList.add('detail-button', 'agregar-carrito');
   buttonCar.setAttribute('data-id', product.id); // **1. Asocia el id del producto al botón usando data-id**
   buttonCar.innerText = "Agregar al Carrito";
 
+  let carrito = []; // Inicializa el carrito
+let data = []; // Inicializa la variable para los productos
+  
   buttonCar.onclick = function () {
     agregarCurso({ target: buttonCar }); // **2. Al hacer clic, llama a agregarCurso pasándole el botón clickeado**
     abrirModal(); // Abre el modal al agregar al carrito
@@ -182,6 +187,7 @@ modalContent.appendChild(modalTitle);
   };
 }
 
+/*
 //Capturamos el id de la URL
 function getProductIdFromUrl() {
   // Obtener la ruta completa de la URL
@@ -193,6 +199,22 @@ function getProductIdFromUrl() {
   // Devolver el ID si existe, o null si no se encuentra
   return idMatch ? idMatch[1] : null;
 }
+
+*/
+
+
+// Capturamos el id de la URL
+function getProductIdFromUrl() {
+  // Obtener la URL completa
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Obtener el ID de la categoría desde los parámetros de la URL
+  const idMatch = urlParams.get('id');
+
+  // Devolver el ID si existe, o null si no se encuentra
+  return idMatch ? idMatch : null;
+}
+
 
 fetch('/ReNuevaTe/data/productDetail.json')
   .then(response => response.json())

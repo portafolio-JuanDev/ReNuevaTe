@@ -37,9 +37,9 @@ function createCards(categorys) {
     container.appendChild(card);
 
 }
-function getCategoryProduct(idCategory) {
+/*function getCategoryProduct(idCategory) {
     // Construir la URL con el parámetro del ID
-    const url = `/catalogue/${idCategory}`;
+    const url = `../pages/catalogo.html/${idCategory}`;
     console.log("id categoria" + idCategory);
 
     // Cambiar la URL sin recargar la página
@@ -47,6 +47,15 @@ function getCategoryProduct(idCategory) {
 
     // Llamar a la función para manejar la nueva URL
     urlLocationHandler();
+}*/
+
+function getCategoryProduct(idCategory) {
+    // Construir la URL con el parámetro del ID
+    const url = `../pages/catalogo.html?id=${idCategory}`;
+    console.log("id categoria: " + idCategory);
+
+    // Redirigir a la nueva URL
+    window.location.href = url;
 }
 
 

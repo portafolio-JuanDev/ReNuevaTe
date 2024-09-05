@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="../styles/inicioDeSesion.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="icon" href="../../public/imagenes/LogoRopaReNuevaFooter.png" style="border-radius: 50px;">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <header class="topheader">
+    </header>
+
+
+    <section class="bdy">
+        <div class="container" id="container">
+            <!-- Formulario para crear cuenta -->
+            <div class="formulario form-container1 sign-up-container" id>
+                <form id="formulario" class="formulario" action="POST">
+                    <div class="title">
+                        <h3 class="titulo-seccion">Crear Cuenta</h3>
+                    </div>
+
+                    <input id="nombre" class="entrada my-1" name="nombre" type="text" onkeypress="return check(event)"
+                        placeholder="Nombre Apellido" required />
+                    <input id="correo" class="entrada my-1" name="correo" type="email" placeholder="Correo" required />
+
+                    <input id="tel" class="entrada my-1" name="numero" type="tel" placeholder="Número" required />
+
+                    <input id="contraseña" class="entrada my-1" name="contraseña" type="password"
+                        placeholder="Contraseña" required />
+
+                    <input id="contraseña2" class="entrada my-1" name="contraseña2" type="password"
+                        placeholder="Confirma contraseña" required />
+
+                    <!-- Boton -->
+                    <button type="submit" class="boton">Crear</button>
+                    <p class="warnings" id="warnings"></p>
+                </form>
+            </div>
+            <!-- Formulario para iniciar sesión -->
+            <div class="formulario2 form-container2 sign-in-container">
+                <form id="formulario2" class="formulario2" action="GET">
+                    <h3 class="titulo-seccion">Inicia Sesión</h3>
+
+                    <input id="username" class="entrada my-2" name="user" type="user" placeholder="Correo" required />
+
+                    <input id="password" class="entrada my-2" name="password" type="password" placeholder="Contraseña"
+                        required />
+
+                    <a class="texto-general-link" href="#">¿Olvidaste tu contraseña?</a>
+                    <button type="submit" class="boton">Ingresar</button>
+                    <p class="error" id="error"></p>
+                </form>
+            </div>
+
+            <!-- Overlay -->
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h3 class="titulo-seccion-2">Bienvenidx!</h3>
+                        <p class="texto-general-2">Únete a nuestra comunidad para recibir promociones.</p>
+                        <button type="button" class="boton-ghost" id="signIn">Inicia Sesión</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h3 class="titulo-seccion-2">¡Únete!</h3>
+                        <p class="texto-general-2">¿No tienes una cuenta? Accede aquí para registrarte.</p>
+                        <button type="button" class="boton-ghost" id="signUp">Unirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="contenedorFooter">
+    </footer>
+
+    <script src="../scripst/headerfooter.js"></script>
+    <script src="../scripst/bolsascripts.js"></script>
+    <script src="../scripst/inicio_de_sesión.js"></script>
+
+</body>
+
+</html>

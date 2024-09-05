@@ -4,12 +4,10 @@ body {
     margin: 0;
 }
 
-
-/* Añadido margen inferior para evitar que la sección de comentarios se sobreponga al footer */
 .comments-section {
     width: 90%;
-    max-width: 800px; /* Aumentado para aprovechar el espacio en pantallas más grandes */
-    margin: 20px auto 60px; /* Añadido margen inferior */
+    max-width: 800px;
+    margin: 20px auto 60px;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -21,8 +19,9 @@ body {
     color: #004465;
     display: flex;
     align-items: center;
-    font-size: 1.5rem; /* Tamaño de fuente adaptable */
+    font-size: 1.5rem;
     font-family: "ABeeZee", sans-serif;
+    margin-bottom: 20px;
 }
 
 .comments-section h2::before {
@@ -68,7 +67,7 @@ body {
 
 .username {
     font-weight: bold;
-    font-size: 1rem; /* Tamaño de fuente adaptable */
+    font-size: 1rem;
 }
 
 .rating {
@@ -76,15 +75,14 @@ body {
 }
 
 textarea, input, select {
-    width: 100%; /* Ajuste para mantener la anchura completa */
-    min-width: 300px; /* Ancho mínimo para evitar compresión excesiva */
+    width: 100%;
+    min-width: 300px;
     margin-top: 10px;
     padding: 10px;
     border-radius: 8px;
     border: 2px solid #718427;
     box-sizing: border-box;
-    resize: none;
-    font-size: 1rem; /* Tamaño de fuente adaptable */
+    font-size: 1rem;
 }
 
 textarea {
@@ -93,8 +91,8 @@ textarea {
 }
 
 #envíar {
-    width: 100%; /* Ajuste para mantener la anchura completa */
-    min-width: 300px; /* Ancho mínimo para evitar compresión excesiva */
+    width: 100%;
+    min-width: 300px;
     margin-top: 10px;
     padding: 10px;
     border: none;
@@ -109,16 +107,14 @@ textarea {
     background-color: #718427;
 }
 
-
-
-@media (max-width: 1024px) { /* Adaptación para tabletas */
+@media (max-width: 1024px) {
     .comments-section {
         max-width: 90%;
-        margin-bottom: 60px; /* Añadido margen inferior en tabletas */
+        margin-bottom: 60px;
     }
 
     .comments-section h2 {
-        font-size: 1.25rem; /* Reducir tamaño de la fuente */
+        font-size: 1.25rem;
     }
 
     .comment-content {
@@ -126,15 +122,15 @@ textarea {
     }
 }
 
-@media (max-width: 600px) { /* Adaptación para dispositivos móviles */
+@media (max-width: 600px) {
     .comments-section {
         width: 100%;
         padding: 15px;
-        margin-bottom: 60px; /* Añadido margen inferior en móviles */
+        margin-bottom: 60px;
     }
 
     .comment {
-        flex-direction: column; /* Cambio a diseño de columna en móviles */
+        flex-direction: column;
     }
 
     .user-info {
@@ -143,20 +139,20 @@ textarea {
     }
 
     #envíar, textarea, input, select {
-        width: 100%; /* Ajuste para mantener la anchura completa */
-        min-width: 100%; /* Ancho mínimo para evitar compresión excesiva */
-        font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+        width: 100%;
+        min-width: 100%;
+        font-size: 0.9rem;
     }
 
     .comments-section h2 {
-        font-size: 1.2rem; /* Reducir tamaño de la fuente */
+        font-size: 1.2rem;
     }
 
     .user-avatar {
-        font-size: 20px; /* Ajuste de tamaño para móviles */
+        font-size: 20px;
     }
 
     .user-avatar .material-icons {
-        font-size: 36px; /* Ajuste de tamaño para móviles */
+        font-size: 36px;
     }
 }

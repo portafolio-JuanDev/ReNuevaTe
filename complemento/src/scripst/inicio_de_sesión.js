@@ -120,6 +120,8 @@ const removeRightPanelActive = () => {
         if (storedUser && storedUser.correo === username && storedUser.contraseña === password) {
             showAlert('Inicio de sesión exitoso.');
             clearFields(form);  // Limpiar los campos del formulario de inicio de sesión
+            window.location.href = "http://127.0.0.1:5500/Ropa-ReNueva/src/pages/inicio.html";
+
         } else {
             showAlert('Nombre de usuario o contraseña inválidos.');
         }
