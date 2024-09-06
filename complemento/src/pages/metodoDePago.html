@@ -49,18 +49,18 @@
     </div>
     <div class="formularioDetallesEnvio derecha">
         <h3>RESUMEN</h3>
-        <a href="" id="mostrarCupon"> AGREGA UN CUPÓN </a>
+        <a href="" id="mostrarCupon">AGREGA UN CUPÓN</a>
         <div class="contenedorInputCupon">
-          <input id="inputCupon" class="inputCupon" type="text" placeholder="Cupón">
+            <input id="inputCupon" class="inputCupon" type="text" placeholder="Cupón">
         </div>
-        <div id="subtotal">
-          <h4>Subtotal: <span id="subtotal-valor">$0</span></h4>
-          <h4>Envío: <span id="envio-valor">$10</span></h4> <!-- Suponiendo un costo de envío fijo -->
-          <h4>I.V.A: <span id="iva-valor">$0</span></h4>
-          <h4>Total: <span id="total-valor">$0</span></h4>
-          <button id="botonSiguiente" class="botonDetallesEnvio">Siguiente</button>
+        <h4>Subtotal $<span id="subtotal-amount">0.00</span></h4>
+        <h4>Envío $<span id="envio-amount">10.00</span></h4>
+        <h4>I.V.A $<span id="iva-amount">0.00</span></h4>
+        <hr>
+        <h4>Total $<span id="total-amount">0.00</span></h4>
+        <button id="botonSiguiente" class="botonDetallesEnvio">Siguiente</button>
         <button class="botonDetallesEnvio">Cancelar</button>
-        </div>
+    </div>
       </div>
     </div>
 </div>
@@ -72,6 +72,7 @@
     <script src="../scripst/headerfooter.js"></script>
     <script src="../scripst/bolsascripts.js"></script>
     <script src="../scripst/metodoDePago.js"></script>
+    <script src="../scripst/precios.js"></script>
     
 </body>
 </html>
