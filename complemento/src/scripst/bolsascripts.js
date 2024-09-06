@@ -106,21 +106,16 @@ function eliminarCurso(e) {
 
 function carritoHTML() {
   limpiarHTML();
-
   articulosCarrito.forEach(curso => {
-    const { imagen, titulo, precio, cantidad, id } = curso;
-
-    const row = document.createElement('div');
-    row.classList.add('curso');
-    row.innerHTML = `
-      <img src="${imagen}" alt="${titulo}">
-      <h5>${titulo}</h5>
-      <h5>$${precio}</h5>
-      <p>Cantidad: ${cantidad}</p>
-      <button <span class="borrar-curso" data-id="${id}">X</span></button>
+    const fila = document.createElement('div');
+    fila.innerHTML = `
+      <img width="100px" height="100px" src="${curso.imagen}"></img>
+      <p>${curso.titulo}</p>
+      <p>${curso.precio}</p>
+      <p>${curso.cantidad}</p>
+      <p><span class="borrar-curso" data-id="${curso.id}">X</span></p>
     `;
-
-    contenedorCarrito.appendChild(row);
+    contenedorCarrito.appendChild(fila);
   });
 }
 
