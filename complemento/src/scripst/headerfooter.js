@@ -19,7 +19,7 @@ header.innerHTML = `
                         <input type="search" placeholder="   Encuentra tu estilo" id="Buscador" />
                     </div>
                 </li>
-                <li class="li-nav"><a href="./inicio.html">Inicio</a></li>
+                <li class="li-nav"><a href="../../../index.html">Inicio</a></li>
                 <li class="li-nav"><a href="./sobreNosotrxs.html">Sobre Nosotres</a></li>
                 <li class="li-nav"><a href="./categorias.html">Catálogo</a></li>
                 <li class="li-nav"><a href="./inicioDeSesion.html">Iniciar Sesión</a></li>
@@ -75,7 +75,7 @@ footer.innerHTML=`
                 <div class="contenedorEnlaces">
                     <h3><a href="./sobreNosotrxs.html" id="enlacesFooter">Sobre Nosotres</a></h3>
                     <h3><a href="./catalogo.html" id="enlacesFooter">Catálogo</a></h3>
-                    <h3><a href="./inicio.html" id="enlacesFooter">Inicio</a></h3>
+                    <h3><a href="../../../index.html" id="enlacesFooter">Inicio</a></h3>
                 </div>
                 <div class="contenedorEnlaces">
                     <h3><a href="./inicioDeSesion.html" id="enlacesFooter">Iniciar Sesión</a></h3>

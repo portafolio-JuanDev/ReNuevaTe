@@ -37,7 +37,7 @@ function createCards(featureds) {
 
     const description = document.createElement('div');
     description.classList.add('inicio-description');
-    description.innerHTML = `<img id="demo" src="/ReNuevaTe/public/imagenes/marca.webp" alt="Ver todo">`;
+    description.innerHTML = `<img id="demo" src="/public/imagenes/marca.webp" alt="Ver todo">`;
 
     const shoeDetails = document.createElement('div');
     shoeDetails.classList.add('inicio-shoe-details');
@@ -71,7 +71,7 @@ arrowIcons.forEach(icon => {
 });
 
 function getCategoryProduct(idCategory) {
-    const url = `../pages/catalogo.html?id=${idCategory}`;
+    const url = `/ReNuevaTe/complemento/src/pages/catalogo.html?id=${idCategory}`;
     console.log("id categoria: " + idCategory);
     window.location.href = url;
 }
