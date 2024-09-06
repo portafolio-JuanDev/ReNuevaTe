@@ -39,6 +39,12 @@ function registrarEventsListeners() {
 function agregarCurso(e) {
   const cursoSeleccionado = e.target.closest('.right');
   leerInfo(cursoSeleccionado);
+
+  carritoHTML();
+  guardarCarritoEnLocalStorage();
+
+  // Abre el modal después de agregar el curso
+  abrirModal(); 
 }
 
 function leerInfo(curso) {

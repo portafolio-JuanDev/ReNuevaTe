@@ -80,6 +80,8 @@ body{
         /*background-color: beige;*/
         padding: 1px;
         flex: 50%;
+        display: flex;
+        justify-content: center;
     }
     .carritoEnvio{
         width: 30px;

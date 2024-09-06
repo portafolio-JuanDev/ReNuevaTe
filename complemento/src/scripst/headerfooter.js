@@ -36,7 +36,7 @@ header.innerHTML = `
                         <div class="lista_de_cursos">
                         </div>
                         <button id="vaciar_carrito" class="clean-btn">Vaciar Carrito</button>
-                        <button class="clean-btn"><a href="/paymenDetails">
+                        <button class="clean-btn"><a href="../pages/detEnvMetPag.html">
                                 Comprar ahora</a>
                         </button>
                     </div>
