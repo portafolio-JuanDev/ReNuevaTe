@@ -87,20 +87,27 @@ function handleRegister(event) {
     if (!validatePasswords(contraseña, contraseña2)) return;
     if (!validatePasswordStrength(contraseña)) return;
 
+    // Objeto que interactuará con el backend
     const usuario = {
-        nombre,
-        correo,
-        telefono,
-        contraseña
+        nombre_usuario: nombre,
+        correo: correo,
+        telefono: telefono,
+        contraseña: contraseña,
+        contraseña2: contraseña2
     };
 
-    localStorage.setItem(correo, JSON.stringify(usuario)); // Guardar usando el correo como clave
-    console.log('Usuario registrado:', usuario);
-    showAlert('Registro exitoso.');
+    // Llamada a la API
+    const url = `http://18.188.203.54/api/v1`;
 
-    // Limpiar los campos del formulario de registro
-    clearFields(form);
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(usuario)
+    })
 }
+
 
 // Manejar el inicio de sesión de usuarios
 function handleLogin(event) {
