@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/agrgarProductos.css">
     <link rel="stylesheet" href="../styles/detalleproducto.css">
     <link rel="stylesheet" href="../styles/detallesDeEnvio.css">
     <link rel="icon" href="../../public/imagenes/LogoRopaReNuevaFooter.png" style="border-radius: 50px;">
@@ -42,41 +43,40 @@
             <div class="mb-1">
               <label for="estado" class="form-label">Estado:</label>
               <select name="estado" id="estado" class="form-select" required>
-        <option value="" disabled selected>Busca tu Estado</option>
-        <option value="Aguascalientes">Aguascalientes</option>
-        <option value="Baja California">Baja California</option>
-        <option value="Baja California Sur">Baja California Sur</option>
-        <option value="Campeche">Campeche</option>
-        <option value="Chiapas">Chiapas</option>
-        <option value="Chihuahua">Chihuahua</option>
-        <option value="Ciudad de México">Ciudad de México</option>
-        <option value="Coahuila">Coahuila</option>
-        <option value="Colima">Colima</option>
-        <option value="Durango">Durango</option>
-        <option value="Estado de México">Estado de México</option>
-        <option value="Guanajuato">Guanajuato</option>
-        <option value="Guerrero">Guerrero</option>
-        <option value="Hidalgo">Hidalgo</option>
-        <option value="Jalisco">Jalisco</option>
-        <option value="Michoacán">Michoacán</option>
-        <option value="Morelos">Morelos</option>
-        <option value="Nayarit">Nayarit</option>
-        <option value="Nuevo León">Nuevo León</option>
-        <option value="Oaxaca">Oaxaca</option>
-        <option value="Puebla">Puebla</option>
-        <option value="Querétaro">Querétaro</option>
-        <option value="Quintana Roo">Quintana Roo</option>
-        <option value="San Luis Potosí">San Luis Potosí</option>
-        <option value="Sinaloa">Sinaloa</option>
-        <option value="Sonora">Sonora</option>
-        <option value="Tabasco">Tabasco</option>
-        <option value="Tamaulipas">Tamaulipas</option>
-        <option value="Tlaxcala">Tlaxcala</option>
-        <option value="Veracruz">Veracruz</option>
-        <option value="Yucatán">Yucatán</option>
-        <option value="Zacatecas">Zacatecas</option>
-            </select>
-              <!--<input type="text" placeholder="Estado de la República Mexicana al que perteneces" required>-->
+                <option value="" disabled selected>Busca tu Estado</option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Baja California Sur">Baja California Sur</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Ciudad de México">Ciudad de México</option>
+                <option value="Coahuila">Coahuila</option>
+                <option value="Colima">Colima</option>
+                <option value="Durango">Durango</option>
+                <option value="Estado de México">Estado de México</option>
+                <option value="Guanajuato">Guanajuato</option>
+                <option value="Guerrero">Guerrero</option>
+                <option value="Hidalgo">Hidalgo</option>
+                <option value="Jalisco">Jalisco</option>
+                <option value="Michoacán">Michoacán</option>
+                <option value="Morelos">Morelos</option>
+                <option value="Nayarit">Nayarit</option>
+                <option value="Nuevo León">Nuevo León</option>
+                <option value="Oaxaca">Oaxaca</option>
+                <option value="Puebla">Puebla</option>
+                <option value="Querétaro">Querétaro</option>
+                <option value="Quintana Roo">Quintana Roo</option>
+                <option value="San Luis Potosí">San Luis Potosí</option>
+                <option value="Sinaloa">Sinaloa</option>
+                <option value="Sonora">Sonora</option>
+                <option value="Tabasco">Tabasco</option>
+                <option value="Tamaulipas">Tamaulipas</option>
+                <option value="Tlaxcala">Tlaxcala</option>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Yucatán">Yucatán</option>
+                <option value="Zacatecas">Zacatecas</option>
+              </select>
             </div>
             <div class="mb-1">
               <label for="" class="form-label">C.P:</label>
@@ -94,34 +94,31 @@
         </div>
         <div class="formularioDetallesEnvio derecha">
           <h3>RESUMEN</h3>
-          <a href="" id="mostrarCupon"> AGREGA UN CUPÓN </a>
+          <a href="" id="mostrarCupon">AGREGA UN CUPÓN</a>
           <div class="contenedorInputCupon">
-            <input id="inputCupon" class="inputCupon" type="text" placeholder="Cupón">
+              <input id="inputCupon" class="inputCupon" type="text" placeholder="Cupón">
           </div>
-          <div id="subtotal">
-            <h4>Subtotal: <span id="subtotal-valor">$0</span></h4>
-            <h4>Envío: <span id="envio-valor">$10</span></h4> <!-- Suponiendo un costo de envío fijo -->
-            <h4>I.V.A: <span id="iva-valor">$0</span></h4>
-            <h4>Total: <span id="total-valor">$0</span></h4>
-            <button id="botonSiguiente" class="botonDetallesEnvio">Siguiente</button>
+          <h4>Subtotal $<span id="subtotal-amount">0.00</span></h4>
+          <h4>Envío $<span id="envio-amount">10.00</span></h4>
+          <h4>I.V.A $<span id="iva-amount">0.00</span></h4>
+          <hr>
+          <h4>Total $<span id="total-amount">0.00</span></h4>
+          <button id="botonSiguiente" class="botonDetallesEnvio">Siguiente</button>
           <button class="botonDetallesEnvio">Cancelar</button>
-          </div>
-        </div>
-          
-          
-        </div>
       </div>
+      </div>
+    </div>
 
     <footer class="contenedorFooter">
         <!-- Aquí podrías agregar contenido para el footer si es necesario -->
     </footer>
 
+
     <script src="../scripst/detEnvMetPag.js"></script>
-    <script src="../scripst/inicio_de_sesión.js"></script>
     <script src="../scripst/headerfooter.js"></script>
-    <script src="../scripst/bolsascripts.js"></script>
     <script src="../scripst/detallesDeEnvio.js"></script>
+    <script src="../scripst/bolsascripts.js"></script>
+    <script src="../scripst/precios.js"></script>
 
 </body>
 </html>
-
