@@ -50,13 +50,22 @@ function createCards(categorys) {
 }*/
 
 function getCategoryProduct(idCategory) {
-    // Construir la URL con el parámetro del ID
-    const url = `../pages/catalogo.html?id=${idCategory}`;
+    let url;
+
+    // Verificar si idCategory es undefined
+    if (idCategory === undefined) {
+        url = '/ReNuevaTe/complemento/src/pages/catalogo.html';
+    } else {
+        // Construir la URL con el parámetro del ID
+        url = `../pages/catalogo.html?id=${idCategory}`;
+    }
+
     console.log("id categoria: " + idCategory);
 
     // Redirigir a la nueva URL
     window.location.href = url;
 }
+
 
 
 

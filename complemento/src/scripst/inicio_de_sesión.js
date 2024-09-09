@@ -1,165 +1,152 @@
+// Función para mostrar alertas nativas del navegador
+function mostrarAlerta(mensaje) {
+    alert(mensaje);
+}
 
-// Función para remover la clase 'right-panel-active'
-const removeRightPanelActive = () => {
-    container.classList.remove('right-panel-active');
-};
-
-    // Función para mostrar alertas nativas del navegador
-    function showAlert(message) {
-        alert(message);
-    }
-
-    // Mostrar alerta al abrir la página
-    function showWelcomeAlert() {
-        showAlert('Bienvenidx a la página. Asegúrate de seguir las instrucciones para el registro y el inicio de sesión.');
-    }
-
-    // Validación de campos vacíos
-    function validateEmptyFields(fields) {
-        for (const field in fields) {
-            if (!fields[field]) {
-                showAlert(`${field} es obligatorio.`);
-                return false;
-            }
-        }
-        return true;
-    }
-
-    // Validación de formato de correo electrónico
-    function validateEmail(email) {
-        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        if (!emailPattern.test(email)) {
-            showAlert('El correo electrónico no es válido.');
+// Validación de campos vacíos
+function validarCamposVacios(campos) {
+    for (const campo in campos) {
+        if (!campos[campo]) {
+            mostrarAlerta(`${campo} es obligatorio.`);
             return false;
         }
-        return true;
     }
+    return true;
+}
 
-    // Validación de número de teléfono (solo números)
-    function validatePhone(phone) {
-        const phonePattern = /^\d{10}$/;
-        if (!phonePattern.test(phone)) {
-            showAlert('El número de teléfono debe tener 10 dígitos.');
-            return false;
-        }
-        return true;
+// Validación de formato de correo electrónico
+function validarEmail(email) {
+    const patronEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!patronEmail.test(email)) {
+        mostrarAlerta('El correo electrónico no es válido.');
+        return false;
     }
+    return true;
+}
 
-    // Validación de coincidencia de contraseñas
-    function validatePasswords(password1, password2) {
-        if (password1 !== password2) {
-            showAlert('Las contraseñas no coinciden.');
-            return false;
-        }
-        return true;
+// Validación de número de teléfono (solo números)
+function validarTelefono(telefono) {
+    const patronTelefono = /^\d{10}$/;
+    if (!patronTelefono.test(telefono)) {
+        mostrarAlerta('El número de teléfono debe tener 10 dígitos.');
+        return false;
     }
+    return true;
+}
 
-    // Validación de contraseña fuerte
-    function validatePasswordStrength(password) {
-        // Requiere al menos una letra mayúscula, un número y un carácter especial
-        const passwordPattern = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!passwordPattern.test(password)) {
-            showAlert('La contraseña debe contener al menos una letra mayúscula, un número y un carácter especial.');
-            return false;
-        }
-        return true;
+// Validación de coincidencia de contraseñas
+function validarContrasenas(contrasena1, contrasena2) {
+    if (contrasena1 !== contrasena2) {
+        mostrarAlerta('Las contraseñas no coinciden.');
+        return false;
     }
+    return true;
+}
 
-    // Limpiar los campos del formulario
-    function clearFields(form) {
-        form.reset();
+// Validación de contraseña fuerte
+function validarFuerzaContrasena(contrasena) {
+    const patronContrasena = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    if (!patronContrasena.test(contrasena)) {
+        mostrarAlerta('La contraseña debe contener al menos una letra mayúscula, un número y un carácter especial.');
+        return false;
     }
+    return true;
+}
 
-    // Manejar el registro de usuarios
-    function handleRegister(event) {
-        event.preventDefault();
+// Limpiar los campos del formulario
+function limpiarCampos(formulario) {
+    formulario.reset();
+}
 
-        const form = event.target;
-        const nombre = document.getElementById('nombre').value;
-        const correo = document.getElementById('correo').value;
-        const telefono = document.getElementById('tel').value;
-        const contraseña = document.getElementById('contraseña').value;
-        const contraseña2 = document.getElementById('contraseña2').value;
+// Manejar el registro de usuarios
+function manejarRegistro(event) {
+    event.preventDefault();
 
-        const fields = { Nombre: nombre, Correo: correo, Teléfono: telefono, Contraseña: contraseña, "Repetir Contraseña": contraseña2 };
+    const formulario = event.target;
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
+    const telefono = document.getElementById('tel').value;
+    const contrasena = document.getElementById('password').value;
+    const contrasena2 = document.getElementById('password2').value;
 
-        if (!validateEmptyFields(fields)) return;
-        if (!validateEmail(correo)) return;
-        if (!validatePhone(telefono)) return;
-        if (!validatePasswords(contraseña, contraseña2)) return;
-        if (!validatePasswordStrength(contraseña)) return;
+    const campos = { Nombre: nombre, Correo: correo, Teléfono: telefono, Contraseña: contrasena, "Repetir Contraseña": contrasena2 };
 
-        const usuario = {
-            nombre,
-            correo,
-            telefono,
-            contraseña
-        };
+    if (!validarCamposVacios(campos)) return;
+    if (!validarEmail(correo)) return;
+    if (!validarTelefono(telefono)) return;
+    if (!validarContrasenas(contrasena, contrasena2)) return;
+    if (!validarFuerzaContrasena(contrasena)) return;
 
-        localStorage.setItem('usuario', JSON.stringify(usuario));
-        console.log('Usuario registrado:', usuario);
-        showAlert('Registro exitoso.');
+    const usuario = {
+        nombre,
+        correo,
+        telefono,
+        contrasena
+    };
 
-        // Limpiar los campos del formulario de registro
-        clearFields(form);
+    localStorage.setItem('usuario', JSON.stringify(usuario));
+    console.log('Usuario registrado:', usuario);
+    mostrarAlerta('Registro exitoso.');
+
+    // Limpiar los campos del formulario de registro
+    limpiarCampos(formulario);
+}
+
+// Manejar el inicio de sesión de usuarios
+function manejarInicioSesion(event) {
+    event.preventDefault();
+
+    const formulario = event.target;
+    const usuarioNombre = document.getElementById('usuario').value;
+    const contrasena = document.getElementById('contraseña').value;
+
+    const campos = { "Nombre de usuario": usuarioNombre, Contraseña: contrasena };
+
+    if (!validarCamposVacios(campos)) return;
+
+    const usuarioAlmacenado = JSON.parse(localStorage.getItem('usuario'));
+    if (usuarioAlmacenado && usuarioAlmacenado.correo === usuarioNombre && usuarioAlmacenado.contrasena === contrasena) {
+        mostrarAlerta('Inicio de sesión exitoso.');
+        limpiarCampos(formulario);  // Limpiar los campos del formulario de inicio de sesión
+        window.location.href = "http://127.0.0.1:5500/ReNuevaTe/index.html";
+    } else {
+        mostrarAlerta('Nombre de usuario o contraseña inválidos.');
     }
+}
 
-    // Manejar el inicio de sesión de usuarios
-    function handleLogin(event) {
-        event.preventDefault();
+// Configuración de usuario de prueba en localStorage
+function configurarUsuarioPrueba() {
+    const usuarioPrueba = {
+        correo: 'usuario@prueba.com',
+        contrasena: 'Password123!'
+    };
+    localStorage.setItem('usuario', JSON.stringify(usuarioPrueba));
+}
 
-        const form = event.target;
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+// Configuración de animaciones de botones
+function configurarAnimacionesBotones() {
+    const botonRegistro = document.getElementById('registrarse');
+    const botonInicioSesion = document.getElementById('iniciarSesion');
+    const contenedor = document.getElementById('contenedor');
 
-        const fields = { "Nombre de usuario": username, Contraseña: password };
+    botonRegistro.addEventListener('click', () => {
+        contenedor.classList.add("right-panel-active");
+    });
 
-        if (!validateEmptyFields(fields)) return;
+    botonInicioSesion.addEventListener('click', () => {
+        contenedor.classList.remove("right-panel-active");
+    });
+}
 
-        const storedUser = JSON.parse(localStorage.getItem('usuario'));
-        if (storedUser && storedUser.correo === username && storedUser.contraseña === password) {
-            showAlert('Inicio de sesión exitoso.');
-            clearFields(form);  // Limpiar los campos del formulario de inicio de sesión
-            window.location.href = "http://127.0.0.1:5500/ReNuevaTe/index.html";
+// Inicialización
+function init() {
+    configurarUsuarioPrueba();
+    configurarAnimacionesBotones();
+    mostrarAlerta('Bienvenidx a la página. Asegúrate de seguir las instrucciones para el registro y el inicio de sesión.');
 
-        } else {
-            showAlert('Nombre de usuario o contraseña inválidos.');
-        }
-    }
+    document.getElementById('formulario').addEventListener('submit', manejarRegistro);
+    document.getElementById('formulario2').addEventListener('submit', manejarInicioSesion);
+}
 
-    // Configuración de usuario de prueba en localStorage
-    function setupTestUser() {
-        const testUser = {
-            correo: 'usuario@prueba.com',
-            contraseña: 'Password123!'
-        };
-        localStorage.setItem('usuario', JSON.stringify(testUser));
-    }
-
-    // Configuración de animaciones de botones
-    function setupButtonAnimations() {
-        const signUpButton = document.getElementById('signUp');
-        const signInButton = document.getElementById('signIn');
-        const container = document.getElementById('container');
-
-        signUpButton.addEventListener('click', () => {
-            container.classList.add("right-panel-active");
-        });
-
-        signInButton.addEventListener('click', () => {
-            container.classList.remove("right-panel-active");
-        });
-    }
-
-    // Inicialización
-    function init() {
-        setupTestUser();
-        setupButtonAnimations();
-        showWelcomeAlert();
-
-        document.getElementById('formulario').addEventListener('submit', handleRegister);
-        document.getElementById('formulario2').addEventListener('submit', handleLogin);
-    }
-
-    // Ejecutar la función de inicialización al cargar el DOM
-    init();
+// Ejecutar la inicialización
+init();

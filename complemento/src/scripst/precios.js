@@ -27,7 +27,7 @@ function actualizarTotales(articulosCarrito) {
   });
 
   const envio = 10; // Puedes ajustar el costo de envío
-  const iva = subtotal * 0.21; // 21% de IVA
+  const iva = subtotal * 0.16; // 16% de IVA
   const total = subtotal + envio + iva;
 
   // Actualizar los elementos en el HTML
